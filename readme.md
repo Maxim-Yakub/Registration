@@ -1,5 +1,13 @@
-Получение REST запроса с пользовательскими данными как триггер для старта процесса
-1. REST API клиент, например Postman, выполняет POST-запрос
+1. ElasticSearch
+   
+docker run -d --name es762 -p 9200:9200 -e "discovery.type=single-node" elasticsearch:7.6.2
+![img_2.png](img_2.png)
+
+
+   
+2. Получение REST запроса с пользовательскими данными как триггер для старта процесса
+    
+    REST API клиент, например Postman, выполняет POST-запрос
    
     http://localhost:8080/engine-rest/process-definition/key/registration/submit-form
 
