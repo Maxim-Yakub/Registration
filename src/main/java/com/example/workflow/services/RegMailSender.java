@@ -1,5 +1,5 @@
 package com.example.workflow.services;
 
-public interface MailSender extends org.springframework.mail.MailSender {
+public interface RegMailSender {
     void finishRegistration(String email);
 }

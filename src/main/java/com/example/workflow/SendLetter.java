@@ -1,6 +1,6 @@
 package com.example.workflow;
 
-import com.example.workflow.services.MailSender;
+import com.example.workflow.services.RegMailSender;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
@@ -9,9 +9,9 @@ import javax.inject.Named;
 @Named
 public class SendLetter implements JavaDelegate {
 
-    MailSender mailSender;
+    RegMailSender mailSender;
 
-    public SendLetter(MailSender mailSender) {
+    public SendLetter(RegMailSender mailSender) {
         this.mailSender = mailSender;
     }
 

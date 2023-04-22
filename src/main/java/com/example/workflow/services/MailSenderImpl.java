@@ -1,23 +1,25 @@
 package com.example.workflow.services;
 
-import org.springframework.mail.MailException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MailSenderImpl  {
-    JavaMailSender mailSender;
+public class MailSenderImpl implements RegMailSender {
+    MailSender mailSender;
 
-    public MailSenderImpl(JavaMailSender mailSender) {
+    @Value("${spring.mail.username}")
+    private String username;
+
+    public MailSenderImpl(MailSender mailSender) {
         this.mailSender = mailSender;
     }
 
     @Override
     public void finishRegistration(String email) {
         final SimpleMailMessage simpleMail = new SimpleMailMessage();
-        simpleMail.setFrom("max250996@yandex.ru");
+        simpleMail.setFrom(username);
         simpleMail.setTo(email);
         simpleMail.setSubject("Регистрация");
         simpleMail.setText("Вы успешно зарегистрировались");

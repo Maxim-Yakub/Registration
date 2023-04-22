@@ -11,3 +11,4 @@ camunda.bpm.admin-user:
       port: 465
       username: max250996
       password: ndyaxvxvpqxzvicy
+      debug: true
