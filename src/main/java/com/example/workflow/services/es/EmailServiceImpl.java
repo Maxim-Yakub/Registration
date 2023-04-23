@@ -1,11 +1,11 @@
-package com.example.workflow.services;
+package com.example.workflow.services.es;
 
 import com.example.workflow.models.Email;
 import com.example.workflow.repositories.EmailRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
     private final EmailRepository emailRepository;
 
     public EmailServiceImpl(EmailRepository emailRepository) {

@@ -1,4 +1,4 @@
-package com.example.workflow.services;
+package com.example.workflow.services.es;
 
 import com.example.workflow.models.Email;
 

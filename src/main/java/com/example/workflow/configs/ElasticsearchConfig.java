@@ -11,7 +11,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.example.workflow.repositories")
-@ComponentScan(basePackages = {"com.example.workflow.services"})
+@ComponentScan(basePackages = {"com.example.workflow.services.es"})
 public class ElasticsearchConfig extends
         AbstractElasticsearchConfiguration {
     @Bean

@@ -4,11 +4,16 @@ camunda.bpm.admin-user:
   id: demo
   password: demo
 
-  spring:
-    mail:
-      protocol: smtps
-      host: smtp.yandex.ru
-      port: 465
-      username: max250996
-      password: ndyaxvxvpqxzvicy
-      debug: true
+spring:
+  mail:
+    protocol: smtps
+    host: ${DOMAIN}
+    port: 465
+    username: ${EMAIL}
+    password: ${PASSWORD}
+    properties:
+      mail:
+        smpt:
+          auth: true
+          starttls:
+            enable: true

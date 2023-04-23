@@ -1,7 +1,7 @@
-package com.example.workflow;
+package com.example.workflow.delegates;
 
 import com.example.workflow.models.Email;
-import com.example.workflow.services.EmailService;
+import com.example.workflow.services.es.EmailService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
@@ -21,14 +21,18 @@ public class CheckDomain implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) throws Exception {
 
         String check = "success";
-//        String domain = (String) delegateExecution.getVariable("email");
-       String domain = "gmail.com";
-        Optional<Email> emailOptional = Optional.ofNullable(emailService.findByDomain(domain));
+
+        String email = (String) delegateExecution.getVariable("email");
+
+        String[] emailParts = email.split("@");
+
+        Optional<Email> emailOptional = Optional.ofNullable(emailService.findByDomain(emailParts[1]));
+
         if(emailOptional.isEmpty()) {
+
             check = "not success";
         }
-        delegateExecution.setVariable("check", check);
 
-//        System.out.println(email.getDomain());
+        delegateExecution.setVariable("check", check);
     }
 }
