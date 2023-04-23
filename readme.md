@@ -22,12 +22,12 @@
    
     http://localhost:8080/engine-rest/process-definition/key/registration/submit-form
 
-   Содержащий данные о пользователе - почту и пароль    
+   Содержащий данные пользователя  
 
     Headers:
         Content-Type: application/json
 
-    Body:
+    Body: (raw)
 ```json
 {
     "variables":
